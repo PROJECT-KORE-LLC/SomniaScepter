@@ -1,5 +1,5 @@
 /* SomniaVibes Founder Edition Service Worker */
-const CACHE_VERSION = 'somniavibes-founder-v1';
+const CACHE_VERSION = 'somniavibes-founder-v3';
 const APP_SHELL = ['./','./index.html','./manifest.json','./sw.js','./README_START_HERE.txt'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_VERSION).then(cache => Promise.all(APP_SHELL.map(asset => fetch(new Request(asset,{cache:'reload'})).then(r => r.ok ? cache.put(asset,r) : null).catch(()=>null)))).then(()=>self.skipWaiting()));
@@ -18,4 +18,3 @@ self.addEventListener('fetch', event => {
   }
   event.respondWith(caches.match(request).then(cached => cached || fetch(request).then(response => { if (response && response.ok) { const copy=response.clone(); caches.open(CACHE_VERSION).then(cache=>cache.put(request,copy)); } return response; })));
 });
-
