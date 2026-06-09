@@ -1,1 +1,13 @@
+{
+  "name": "SomniaVibes Founder Edition",
+  "short_name": "SomniaVibes",
+  "description": "A local-first vibe builder for weird little brains.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#08070c",
+  "theme_color": "#08070c",
+  "orientation": "any",
+  "icons": []
+}
 
